@@ -26,6 +26,8 @@ html { scroll-behavior: smooth; }
 body {
   font-family: 'Plus Jakarta Sans', sans-serif;
   background-color: var(--bg-black);
+  background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Ctext x='50%25' y='50%25' font-size='10' fill='rgba(96, 165, 250, 0.5)' font-family='Plus Jakarta Sans' font-weight='800' text-anchor='middle' dominant-baseline='middle' transform='rotate(-20, 40, 40)'%3EIF25%3C/text%3E%3C/svg%3E");
+  background-attachment: fixed;
   color: var(--text-main);
   line-height: 1.8;
   overflow-x: hidden;
@@ -177,11 +179,51 @@ body::after {
   position: relative; height: 500px; width: 100%;
   border-radius: var(--radius-custom);
   overflow: hidden;
+  background: var(--bg-black); /* Added to block background pattern */
   border: 1px solid var(--border);
   box-shadow: 0 0 50px rgba(59, 130, 246, 0.1);
 }
 
-.hero-visual img { width: 100%; height: 100%; object-fit: cover; opacity: 0.6; mix-blend-mode: color-dodge; }
+.hero-visual img { width: 100%; height: 100%; object-fit: cover; opacity: 1; }
+
+/* ===== MARQUEE (SCROLLING TEXT) ===== */
+.marquee-container {
+  background: var(--bg-dark);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 2rem 0;
+  overflow: hidden;
+  display: flex;
+  white-space: nowrap;
+}
+
+.marquee-content {
+  display: flex;
+  gap: 2rem;
+  animation: scroll-marquee 20s linear infinite;
+}
+
+.marquee-content span {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(96, 165, 250, 0.3);
+  text-transform: uppercase;
+  letter-spacing: 5px;
+}
+
+.marquee-content span:hover {
+  color: var(--primary);
+  -webkit-text-stroke: 1px var(--primary);
+  text-shadow: 0 0 20px var(--primary);
+  transition: 0.3s;
+}
+
+@keyframes scroll-marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
 
 /* ===== STATS STRIP (METAL BLUE) ===== */
 .stats-strip {
@@ -263,6 +305,7 @@ body::after {
 .mentor-img {
   width: 100%; aspect-ratio: 1/1; border-radius: var(--radius-custom);
   object-fit: cover; filter: brightness(80%); 
+  background: var(--bg-black); /* Added to block background pattern */
   border: 1px solid var(--border);
   transition: var(--transition);
 }
