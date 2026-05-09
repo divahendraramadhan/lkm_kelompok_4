@@ -90,15 +90,16 @@ body::after {
   letter-spacing: -0.5px;
 }
 
-.logo-if {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 0.7rem; font-weight: 900;
-  background: var(--metallic-gradient);
-  color: white;
-  padding: 4px 8px;
-  border-radius: 4px;
-  box-shadow: 0 0 15px var(--primary);
-  letter-spacing: 1px;
+.logo-lkm {
+  height: 35px;
+  width: auto;
+  filter: drop-shadow(0 0 8px var(--primary));
+  transition: var(--transition);
+}
+
+.logo-lkm:hover {
+  transform: scale(1.1);
+  filter: drop-shadow(0 0 12px var(--primary));
 }
 
 .nav-batch {
@@ -113,12 +114,7 @@ body::after {
   text-transform: uppercase;
 }
 
-.logo-dot { 
-  width: 12px; height: 12px; 
-  background: var(--metallic-gradient); 
-  border-radius: 50%; 
-  box-shadow: 0 0 15px var(--primary); 
-}
+
 
 .nav-links { display: flex; gap: 3rem; list-style: none; }
 
